@@ -6,6 +6,12 @@ import Curtains from "./components/Curtains/Curtains";
 import CameraSpotlight from "./components/CameraSpotlight/CameraSpotlight";
 import TheatreScreen from "./components/TheatreScreen/TheatreScreen";
 import About from "./components/About";
+import Navbar from "./components/Navbar"; // import your Navbar
+import Skills from "./components/Skills";
+import Services from "./components/Services";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,8 +20,21 @@ function App() {
         {/* Home route → your animated theatre intro */}
         <Route path="/" element={<Home />} />
 
-        {/* About route → static About section */}
-        <Route path="/about" element={<About />} />
+        {/* About route → Navbar + About page */}
+        <Route
+          path="/about"
+          element={
+            <>
+              <Navbar /> 
+              <About />
+              <Skills/>
+              <Services/>
+              <Projects/>
+              <Contact/>
+              <Footer/>
+            </>
+          }
+        />
       </Routes>
     </Router>
   );
