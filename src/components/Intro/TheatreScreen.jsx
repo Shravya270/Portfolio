@@ -82,7 +82,7 @@ const TheatreScreen = ({ slideIn }) => {
 
   return (
     <motion.div
-      className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-gray-950 overflow-hidden font-inter"
+      className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-gray-950 overflow-hidden font-inter px-2 sm:px-4"
       initial={{ x: "100%" }}
       animate={{ x: slideIn ? 0 : "100%" }}
       transition={{ duration: 2.5, ease: "easeInOut" }}
@@ -95,107 +95,111 @@ const TheatreScreen = ({ slideIn }) => {
         className="absolute z-0 left-0 top-0 h-full 
                    bg-gradient-to-r from-yellow-200/70 via-yellow-100/20 to-transparent 
                    blur-2xl [clip-path:polygon(0%_43%,80%_0%,80%_80%,0%_56%)] origin-left"
-        style={{ width: "500px" }}
+        style={{ width: "100%", maxWidth: "500px" }}
       />
 
       {/* Cinema screen */}
-      <motion.div
-        animate={screenControls}
-        className="relative z-10 w-10/12 max-w-5xl h-72 sm:h-80 md:h-[26rem] lg:h-[30rem] 
-                   flex flex-col items-center justify-start px-6 text-center
-                   border-[3px] border-gray-900 rounded-lg shadow-2xl pt-8"
-        style={{
-          backgroundColor: screenColor,
-          transition: "background-color 1s ease-in-out",
-          boxShadow: projectorOn
-            ? "0 0 180px 80px rgba(255,255,200,0.35), inset 0 0 40px rgba(0,0,0,0.7)"
-            : "0 0 60px 20px rgba(255,255,200,0.15), inset 0 0 20px rgba(0,0,0,0.6)",
-          background: `radial-gradient(circle at center, ${screenColor} 85%, rgba(0,0,0,0.6) 100%)`,
-        }}
-        initial={{ opacity: 0.9, scale: 1 }}
-        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-      >
-        {/* Photo */}
-        <motion.img
-          src="/PHOTO.jpg"
-          alt="My Photo"
-          className="w-20 h-20 md:w-32 md:h-32 rounded-full mb-4 border border-crimson-700 shadow-lg -mt-4"
-          initial={{ opacity: 0, y: 40 }}
-          animate={projectorOn ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-        />
+<motion.div
+  animate={screenControls}
+  className="relative z-10 w-full sm:w-10/12 max-w-5xl 
+             min-h-[18rem] sm:min-h-[24rem] md:min-h-[28rem] lg:min-h-[34rem]
+             flex flex-col items-center justify-start px-3 sm:px-6 text-center
+             border-[2px] sm:border-[3px] border-gray-900 rounded-lg shadow-2xl pt-6 sm:pt-8
+             overflow-hidden"
+  style={{
+    backgroundColor: screenColor,
+    transition: "background-color 1s ease-in-out",
+    boxShadow: projectorOn
+      ? "0 0 180px 80px rgba(255,255,200,0.35), inset 0 0 40px rgba(0,0,0,0.7)"
+      : "0 0 60px 20px rgba(255,255,200,0.15), inset 0 0 20px rgba(0,0,0,0.6)",
+    background: `radial-gradient(circle at center, ${screenColor} 85%, rgba(0,0,0,0.6) 100%)`,
+  }}
+  initial={{ opacity: 0.9, scale: 1 }}
+  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+>
 
-        {/* Name */}
-        <motion.h1
-          className="text-2xl md:text-4xl lg:text-5xl font-semibold font-mono mb-2"
-          style={{ color: "#5A3227" }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={projectorOn ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: "easeOut", delay: 1 }}
-        >
-          SHRAVYA P SHETTY
-        </motion.h1>
+  {/* Photo */}
+  <motion.img
+    src="/PHOTO.jpg"
+    alt="My Photo"
+    className="w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full mb-2 sm:mb-3 md:mb-4 border border-crimson-700 shadow-lg -mt-1 sm:-mt-2"
+    initial={{ opacity: 0, y: 40 }}
+    animate={projectorOn ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+  />
 
-        {/* Subtitle */}
-        <motion.h2
-          className="text-md md:text-xl lg:text-2xl font-semibold font-mono italic mb-4"
-          style={{ color: "#8B5E4C" }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={projectorOn ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: "easeOut", delay: 1.8 }}
-        >
-          Full Stack Developer based in Mangalore
-        </motion.h2>
+  {/* Name */}
+  <motion.h1
+    className="text-base sm:text-2xl md:text-4xl lg:text-5xl font-semibold font-mono mb-1 sm:mb-2 px-2 break-words"
+    style={{ color: "#5A3227" }}
+    initial={{ opacity: 0, y: 40 }}
+    animate={projectorOn ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+  >
+    SHRAVYA P SHETTY
+  </motion.h1>
 
-        {/* Description */}
-        <motion.p
-          className="text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed font-semibold font-mono"
-          style={{ color: "#8B5E4C" }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={projectorOn ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 2.6 }}
-        >
-          I am a versatile software engineer, blockchain innovator, and full-stack
-          developer with hands-on experience in SAP, web technologies, and emerging
-          tech.
-        </motion.p>
+  {/* Subtitle */}
+  <motion.h2
+    className="text-xs sm:text-md md:text-xl lg:text-2xl font-semibold font-mono italic mb-2 sm:mb-4 px-2 break-words"
+    style={{ color: "#8B5E4C" }}
+    initial={{ opacity: 0, y: 40 }}
+    animate={projectorOn ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 1, ease: "easeOut", delay: 1.8 }}
+  >
+    Full Stack Developer based in Mangalore
+  </motion.h2>
 
-        {/* Explore More Button */}
-        {showExplore && (
-          <motion.button
-            onClick={handleExplore}
-            className="mt-6 px-4 py-2 text-sm bg-[#fdfafF] text-black font-semibold rounded-xl shadow-lg hover:bg-[#ebcc9a] transition-all"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-          >
-            🎥 Explore More
-          </motion.button>
-        )}
-      </motion.div>
+  {/* Description */}
+  <motion.p
+    className="text-[10px] sm:text-sm md:text-base lg:text-lg max-w-[90%] sm:max-w-2xl leading-relaxed font-semibold font-mono px-2 break-words"
+    style={{ color: "#8B5E4C" }}
+    initial={{ opacity: 0, y: 40 }}
+    animate={projectorOn ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 1.2, ease: "easeOut", delay: 2.6 }}
+  >
+    I am a versatile software engineer, blockchain innovator, and full-stack
+    developer with hands-on experience in SAP, web technologies, and emerging
+    tech.
+  </motion.p>
+
+  {/* Explore More Button */}
+  {showExplore && (
+    <motion.button
+      onClick={handleExplore}
+      className="mt-2 sm:mt-4 md:mt-6 px-2 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-sm bg-[#fdfafF] text-black font-semibold rounded-xl shadow-lg hover:bg-[#ebcc9a] transition-all"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+    >
+      🎥 Explore More
+    </motion.button>
+  )}
+</motion.div>
+
 
       {/* Rows of seats */}
       <motion.div
         animate={seatControls}
-        className="relative w-full flex flex-col items-center mt-6 space-y-1 z-10"
+        className="relative w-full flex flex-col items-center mt-3 sm:mt-6 space-y-0.5 sm:space-y-1 z-10"
       >
         {Array.from({ length: rows }).map((_, rowIndex) => {
           const seatCount = seatsPerRow - rowIndex;
           return (
             <div
               key={rowIndex}
-              className="flex justify-center space-x-1"
+              className="flex justify-center space-x-0.5 sm:space-x-1"
               style={{
-                transform: `scale(${0.9 - rowIndex * 0.05}) translateY(${rowIndex * -6}px)`,
+                transform: `scale(${0.5 - rowIndex * 0.05}) translateY(${rowIndex * -3}px)`,
                 zIndex: rows - rowIndex,
               }}
             >
               {Array.from({ length: seatCount }).map((_, seatIndex) => (
                 <div
                   key={seatIndex}
-                  className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-red-700 rounded-t-lg shadow-md"
+                  className="w-2.5 h-2.5 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-10 lg:h-10 bg-red-700 rounded-t-lg shadow-md"
                 />
               ))}
             </div>
