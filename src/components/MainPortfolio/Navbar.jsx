@@ -19,7 +19,7 @@ const Navbar = () => {
         smooth={true}
         duration={700}
         offset={-80}
-        className="flex items-center gap-2 hover:text-[#c96b85] transition cursor-pointer"
+        className="flex items-center gap-2 hover:text-[#5A3227] transition cursor-pointer"
       >
         <FaFilm className="text-xl text-[#b07c4f]" />
         <h1 className="text-2xl font-bold text-[#3b2c20] drop-shadow-sm">
@@ -36,7 +36,7 @@ const Navbar = () => {
               smooth={true}
               duration={700}
               offset={-80}
-              className="hover:text-[#c96b85] hover:drop-shadow-[0_0_6px_#c96b85] transition cursor-pointer"
+              className="hover:text-[#5A3227] hover:drop-shadow-[0_0_6px_#c96b85] transition cursor-pointer"
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </Link>

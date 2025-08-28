@@ -5,14 +5,16 @@ import {
   FaBrain,
   FaPaintBrush,
   FaProjectDiagram,
+  FaUserTie
 } from "react-icons/fa";
 
+// Service Data with resume details
 // Service Data with resume details
 const servicesData = [
   {
     id: 1,
     title: "Full-Stack Web Development",
-    icon: <FaCode className="text-yellow-600 text-6xl" />,
+    icon: <FaCode className="text-yellow-600 text-6xl" />, // 💻 Coding icon (perfect for development)
     short: "Designing and building scalable applications with modern web technologies.",
     details: [
       "Built College Fee Payment System using Java Servlets, JSP, SQLite, and Tailwind CSS.",
@@ -23,7 +25,7 @@ const servicesData = [
   {
     id: 2,
     title: "Blockchain & Emerging Technologies",
-    icon: <FaBrain className="text-red-600 text-6xl" />,
+    icon: <FaProjectDiagram className="text-red-600 text-6xl" />, // 🔗 Network/Blockchain diagram
     short: "Leveraging blockchain, AI, and SAP ABAP for innovative solutions.",
     details: [
       "Developed Blockchain Healthcare DApp on Ethereum handling 100+ secure patient records.",
@@ -34,7 +36,7 @@ const servicesData = [
   {
     id: 3,
     title: "Software Engineering & Problem Solving",
-    icon: <FaProjectDiagram className="text-indigo-700 text-6xl" />,
+    icon: <FaBrain className="text-indigo-700 text-6xl" />, // 🧠 Problem solving & logic
     short: "Applying computer science fundamentals to create efficient solutions.",
     details: [
       "Strong knowledge of Data Structures, Algorithms, OOP, DBMS, OS, and Computer Networks.",
@@ -45,7 +47,7 @@ const servicesData = [
   {
     id: 4,
     title: "Professional & Technical Skills",
-    icon: <FaPaintBrush className="text-teal-700 text-6xl" />,
+    icon: <FaUserTie className="text-teal-700 text-6xl" />, // 👔 Professional/soft skills
     short: "Blending strong professional and core technical skills for impactful delivery.",
     details: [
       "Problem-solving, adaptability, and effective communication in agile, client-facing environments.",
@@ -54,6 +56,7 @@ const servicesData = [
     ],
   },
 ];
+
 
 const tiltAngles = ["-2deg", "2deg", "-1deg", "1deg"]; // subtle movie reel vibe
 

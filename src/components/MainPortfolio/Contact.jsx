@@ -16,12 +16,19 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // ✅ Map your form data to match EmailJS template variables
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
     emailjs
       .send(
-        "service_241koac",   // Replace with your EmailJS Service ID
-        "template_f0e6abb",  // Replace with your EmailJS Template ID
-        formData,
-        "P2KqNoQbS5tkyifur"    // Replace with your EmailJS Public Key
+        "service_241koac",   // Your EmailJS Service ID
+        "template_f0e6abb",  // Your EmailJS Template ID
+        templateParams,
+        "P2KqNoQbS5tkyifur"  // Your EmailJS Public Key
       )
       .then(
         (result) => {
@@ -39,15 +46,16 @@ const Contact = () => {
 
   return (
     <section
-      id="contact"
-      className="relative w-full min-h-screen bg-gradient-to-b from-white to-gray-50 text-black px-6 py-16 flex flex-col items-center"
-    >
+  id="contact"
+  className="relative w-full min-h-screen text-black px-6 py-16 flex flex-col items-center"
+>
+
       {/* Heading */}
       <div className="text-center mb-12">
         <h3 className="text-lg text-gray-500">Connect with me</h3>
         <h1 className="text-4xl font-bold">Get in touch</h1>
         <p className="mt-4 max-w-2xl text-gray-600">
-          Drop your message on this retro ticket and let’s start the show.
+          Drop your message on this ticket and let’s start the show.
         </p>
       </div>
 

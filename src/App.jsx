@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
-import Curtains from "./components/Curtains/Curtains";
-import CameraSpotlight from "./components/CameraSpotlight/CameraSpotlight";
-import TheatreScreen from "./components/TheatreScreen/TheatreScreen";
-import About from "./components/About";
-import Navbar from "./components/Navbar"; // import your Navbar
-import Skills from "./components/Skills";
-import Services from "./components/Services";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import LoadingScreen from "./components/Intro/LoadingScreen";
+import Curtains from "./components/Intro/Curtains";
+import CameraSpotlight from "./components/Intro/CameraSpotlight";
+import TheatreScreen from "./components/Intro/TheatreScreen";
+import About from "./components/MainPortfolio/About";
+import Navbar from "./components/MainPortfolio/Navbar"; // import your Navbar
+import Skills from "./components/MainPortfolio/Skills";
+import Services from "./components/MainPortfolio/Services";
+import Projects from "./components/MainPortfolio/Projects";
+import Contact from "./components/MainPortfolio/Contact";
+import Footer from "./components/MainPortfolio/Footer";
 
 function App() {
   return (

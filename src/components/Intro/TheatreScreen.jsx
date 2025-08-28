@@ -11,11 +11,10 @@ const TheatreScreen = ({ slideIn }) => {
   const screenControls = useAnimation();
   const seatControls = useAnimation();
 
-  const navigate = useNavigate(); // ✅ Added router navigation
+  const navigate = useNavigate();
 
   const colors = ["#EAE2C8", "#F5F5DC", "#FDF5E6", "#FFFACD"];
 
-  // cycle screen background color
   useEffect(() => {
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * colors.length);
@@ -24,7 +23,6 @@ const TheatreScreen = ({ slideIn }) => {
     return () => clearInterval(interval);
   }, []);
 
-  // projector beam + show Explore button
   useEffect(() => {
     if (slideIn) {
       controls.start("extended").then(() => {
@@ -35,15 +33,12 @@ const TheatreScreen = ({ slideIn }) => {
     }
   }, [slideIn, controls]);
 
-  // ✅ Explore handler with cinematic zoom then navigate to /about
   const handleExplore = async () => {
-    // fade out seats
     await seatControls.start({
       opacity: 0,
       transition: { duration: 0.8, ease: "easeInOut" },
     });
 
-    // zoom into screen
     await screenControls.start({
       scale: 3.5,
       y: -150,
@@ -51,7 +46,6 @@ const TheatreScreen = ({ slideIn }) => {
       transition: { duration: 1.5, ease: "easeInOut" },
     });
 
-    // navigate to About page
     navigate("/about");
   };
 
@@ -133,8 +127,8 @@ const TheatreScreen = ({ slideIn }) => {
 
         {/* Name */}
         <motion.h1
-          className="text-2xl md:text-4xl lg:text-5xl font-bold mb-2"
-          style={{ color: "crimson", fontFamily: "'Cinzel Decorative', serif" }}
+          className="text-2xl md:text-4xl lg:text-5xl font-semibold font-mono mb-2"
+          style={{ color: "#5A3227" }}
           initial={{ opacity: 0, y: 40 }}
           animate={projectorOn ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: "easeOut", delay: 1 }}
@@ -144,8 +138,8 @@ const TheatreScreen = ({ slideIn }) => {
 
         {/* Subtitle */}
         <motion.h2
-          className="text-md md:text-xl lg:text-2xl italic mb-4"
-          style={{ color: "crimson", fontFamily: "'Cinzel', serif" }}
+          className="text-md md:text-xl lg:text-2xl font-semibold font-mono italic mb-4"
+          style={{ color: "#8B5E4C" }}
           initial={{ opacity: 0, y: 40 }}
           animate={projectorOn ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: "easeOut", delay: 1.8 }}
@@ -155,8 +149,8 @@ const TheatreScreen = ({ slideIn }) => {
 
         {/* Description */}
         <motion.p
-          className="text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed"
-          style={{ color: "crimson", fontFamily: "'Cinzel', serif" }}
+          className="text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed font-semibold font-mono"
+          style={{ color: "#8B5E4C" }}
           initial={{ opacity: 0, y: 40 }}
           animate={projectorOn ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, ease: "easeOut", delay: 2.6 }}
@@ -170,7 +164,7 @@ const TheatreScreen = ({ slideIn }) => {
         {showExplore && (
           <motion.button
             onClick={handleExplore}
-            className="mt-6 px-4 py-2 text-sm bg-yellow-400 text-black font-semibold rounded-xl shadow-lg hover:bg-yellow-500 transition-all"
+            className="mt-6 px-4 py-2 text-sm bg-[#fdfafF] text-black font-semibold rounded-xl shadow-lg hover:bg-[#ebcc9a] transition-all"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 30 }}

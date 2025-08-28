@@ -57,8 +57,7 @@ const Skills = () => {
         <h3 className="text-lg text-gray-500">Tech Stack</h3>
         <h1 className="text-4xl font-bold">My Skills</h1>
         <p className="mt-4 max-w-3xl text-gray-600">
-          Technologies that power my ability to craft scalable architectures,
-          optimize performance, and deliver seamless digital experiences.
+          Technologies and frameworks I leverage to engineer robust systems, build intelligent solutions, and create impactful user experiences
         </p>
       </div>
 
